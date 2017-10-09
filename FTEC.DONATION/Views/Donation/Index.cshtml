@@ -1,0 +1,116 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>FTEC Donation</title>
+    <!-- Bootstrap core CSS -->
+    <!-- Custom styles for this template -->
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/scrolling-nav.css" rel="stylesheet" />
+</head>
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container" align="RIGTH">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">FTEC DONATION</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-info btn-mg" role="button" data-toggle="modal" data-target="#login-modal">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="bg-info	 text-white">
+        <div class="container text-center">
+            <h1>Bem Vindo ao Ftec Donation</h1>
+            <p class="lead">Ferramenta desenvolvida para facilitar integração entre Doador e Instituição</p>
+        </div>
+    </header>
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Sobre essa Pagina</h2>
+                    <p class="lead">Ftec Donation tem com objetivo facilitar a integração entre as pessoa e a isntituição, conta com ferramentas de aprocimação que facilitam o processo de doação. Abaixo algumas funcionalidades do site.</p>
+                    <ul>
+                        <li>Instituição pode criar eventos para voluntários</li>
+                        <li>Vonluntários podem se insdcrver em eventos disponiveis.</li>
+                        <li>Instituição pode realizar requisição de objetos doados</li>
+                        <li>Vonluntário pode realizar doação.</li>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEGIN # MODAL LOGIN -->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content" align="center">
+                <div class="modal-header col-md-6">
+                    <img class="img-circle" id="img_logo" src="img/logo1.png ">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
+                </div>
+
+                <!-- Begin # Login Form -->
+                <form id="login-form">
+                    <div class="modal-body">
+                        <div id="div-login-msg">
+                            <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                            <span id="text-login-msg">Insira seu Username e Senha</span>
+                        </div>
+                        <input id="login_username" class="form-control" type="text" placeholder="Username" required>
+                        <input id="login_password" class="form-control" type="password" placeholder="Password" required>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Remember me
+                            </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div align="Center">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                            <a href="painel.html"> Proxima</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">FTEC DONATION 2017</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="~/Scripts/jquery.easing.min.js"></script>
+    <!-- Custom JavaScript for this theme -->
+    <script src="~/Scripts/scrolling-nav.js"></script>
+</body>
+</html>
