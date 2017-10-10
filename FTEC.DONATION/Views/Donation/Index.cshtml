@@ -103,7 +103,7 @@
                                 <option value="2">Voluntários</option>
                             </select>
                             <br><br>
-                            <button type="submit" class="btn btn-primary  col-md-12">Continuar</button>
+                            <button type="submit" class="btn btn-primary  col-md-12">Login</button>
                         </div>
                     </form>
                 </div>
@@ -118,61 +118,41 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body" style="width: 50;">
-                    <form method="post" action="~/Donation/SelectCad">
+                    <form method="post" action="~/Donation/Autenticar">
                         <div class="form-group ">
-                            <label>Recinto</label>
-                            <select class="form-control" data-toggle="modal" onchange="teste">
-                                <option value="coliseu">O meu coliseu</option>
-                                <option value="volvo">volvo</option>
-                                <option value="minhaarena">A minha arena</option>
-                                <option value="garagem">a garagem da minha vizinha</option>
-                                <option value="esquina">Na esquina</option>
+                            <select class="custom-select col-md-4" name="Tipo">
+                                <option selected>Tipo de Usuário</option>
+                                <option value="1">Fundação</option>
+                                <option value="2">Voluntários</option>
+                                <option value="3">Administrardor</option>
                             </select>
+                            <br><br>
+                            <label for="Email">Email</label>
+                            <input class="form-control col-md-12" type="text" name="Email" placeholder="Email">
+                            <br><br>
+                            <label for="Senha">Senha</label>
+                            <input class="form-control col-md-12" type="password" name="Senha" placeholder="Senha">
+                            <br><br>
+                            <button type="submit" class="btn btn-primary  col-md-12">Continuar</button>
+                            <br><br>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="cria-recinto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
+   
 
     <script type="text/javascript">
 
         $(document).ready(function () {
             $('#register').modal('show');
         })
-    </script>
-
-    <script type="text/javascript">
+   
 
         $(document).ready(function () {
             $('#login').modal('show');
         })
-    </script>
-    <script>
-        function teste ()
-        {
-        
-        if ($(this).val() == "volvo")
-        {
-            $('#cria-recinto').modal('show');
-        }
-    });
     </script>
 }

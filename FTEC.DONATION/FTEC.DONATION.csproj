@@ -107,12 +107,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdministradorController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\FundacaoController.cs" />
     <Compile Include="Controllers\VoluntarioController.cs" />
+    <Compile Include="Filtro\FiltroAcesso.cs" />
+    <Compile Include="Filtro\FiltroAdm.cs" />
+    <Compile Include="Filtro\FiltroFundacao.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Adm.cs" />
+    <Compile Include="Models\Fundacao.cs" />
     <Compile Include="Models\Voluntario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -135,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Administrador\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

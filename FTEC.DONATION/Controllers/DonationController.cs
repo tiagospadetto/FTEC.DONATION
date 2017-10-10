@@ -58,5 +58,53 @@ namespace FTEC.DONATION.Controllers
             return RedirectToAction("Index", "Voluntario", new { area = "" });
         }
 
+        [HttpPost]
+        public ActionResult Autenticar(String Tipo, String Email, String Senha)
+        {
+            List<Voluntario> Voluntarios;
+
+            Adm administrador = new Adm();
+
+            administrador.Email = "admin";
+            administrador.Senha = "admin123";
+
+
+            Voluntarios = (List<Voluntario>)Session["voluntarios"];
+
+            if (Voluntarios != null || Tipo == "2")
+            {
+                foreach (var Voluntario in Voluntarios)
+                {
+
+                    if (Voluntario.Email == Email || Voluntario.Senha == Senha)
+                    {
+                        Session["Usuario"] = Email;
+                        return RedirectToAction("Index", "Voluntario");
+
+                    }
+                    else
+                    {
+                        Session["Usuario"] = null;
+                        return JavaScript("<script>alert(\"método CarregarGrid()\")</script>");
+                    }
+
+
+                }
+            }
+            if (Tipo == "3")
+            {
+                if (administrador.Email == Email || administrador.Senha == Senha)
+                {
+                    Session["Usuario"] = null;
+                    Session["Administrador"] = Email;
+                    return RedirectToAction("Index", "Adminstrador");
+                }
+                
+
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }   
 }
