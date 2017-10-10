@@ -13,5 +13,27 @@ namespace FTEC.DONATION.Controllers
         {
             return View();
         }
-    }
+        [HttpPost]
+        public ActionResult SelectCad(String teste)
+        {
+            if(teste == "Vonluntario")
+            {
+                return RedirectToAction("Novo", "Vonluntario", new { area = "" });
+            }
+            else
+            {
+                return RedirectToAction("Novo", "Fundacao", new { area = "" });
+            }
+        }
+
+        public ActionResult Vonluntario()
+        {
+            return RedirectToAction("Novo", "Vonluntario", new { area = "" });
+        }
+
+        public ActionResult Fundacao()
+        {
+            return RedirectToAction("Novo", "Fundacao", new { area = "" });
+        }
+    }   
 }

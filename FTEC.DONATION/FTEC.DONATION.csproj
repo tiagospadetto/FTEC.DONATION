@@ -97,6 +97,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="img\logo1.png" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery.easing.min.js" />
     <Content Include="Scripts\jquery.min.js" />
@@ -107,15 +108,20 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DonationController.cs" />
+    <Compile Include="Controllers\FundacaoController.cs" />
+    <Compile Include="Controllers\VonluntarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Vonlunatario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\Donation\Index.cshtml" />
+    <Content Include="Views\Vonluntario\Novo.cshtml" />
+    <Content Include="Views\Fundacao\Novo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -125,7 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
