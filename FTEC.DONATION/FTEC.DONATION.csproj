@@ -109,11 +109,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\FundacaoController.cs" />
-    <Compile Include="Controllers\VonluntarioController.cs" />
+    <Compile Include="Controllers\VoluntarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Vonlunatario.cs" />
+    <Compile Include="Models\Voluntario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +122,10 @@
     <Content Include="Views\Donation\Index.cshtml" />
     <Content Include="Views\Vonluntario\Novo.cshtml" />
     <Content Include="Views\Fundacao\Novo.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Donation\NewFundacao.cshtml" />
+    <Content Include="Views\Donation\NewVoluntario.cshtml" />
+    <Content Include="Views\Voluntario\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

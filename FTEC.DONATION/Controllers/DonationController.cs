@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FTEC.DONATION.Models;
 
 namespace FTEC.DONATION.Controllers
 {
@@ -16,24 +17,46 @@ namespace FTEC.DONATION.Controllers
         [HttpPost]
         public ActionResult SelectCad(String teste)
         {
-            if(teste == "Vonluntario")
+            if(teste == "2")
             {
-                return RedirectToAction("Novo", "Vonluntario", new { area = "" });
+                return RedirectToAction("NewVoluntario");
             }
             else
             {
-                return RedirectToAction("Novo", "Fundacao", new { area = "" });
+                return RedirectToAction("NewFundacao");
             }
         }
 
-        public ActionResult Vonluntario()
+        public ActionResult NewVoluntario()
         {
-            return RedirectToAction("Novo", "Vonluntario", new { area = "" });
+            return View();
         }
 
-        public ActionResult Fundacao()
+        public ActionResult NewFundacao()
         {
-            return RedirectToAction("Novo", "Fundacao", new { area = "" });
+            return View();
         }
+
+        [HttpPost]
+        public ActionResult NovoVoluntario(Voluntario voluntario)
+        {
+            List<Voluntario> Voluntarios;
+
+
+            if (Session["voluntarios"] == null)
+            {
+                Voluntarios = new List<Voluntario>();
+            }
+            else
+            {
+                Voluntarios = (List<Voluntario>)Session["voluntarios"];
+            }
+
+            Voluntarios.Add(voluntario);
+
+            Session["voluntarios"] = Voluntarios;
+            return RedirectToAction("Index", "Voluntario", new { area = "" });
+        }
+
     }   
 }

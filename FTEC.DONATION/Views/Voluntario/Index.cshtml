@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section titulo
+{
+    <title>FTEC Donation</title>
+}
+
+@section conteudo
+{
+    <body>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        @foreach (var voluntario in ViewBag.voluntarios)
+        {
+            <td>@voluntario.Nome</td>
+        }
+    </tr>
+   </tbody>
+</table>
+
+}

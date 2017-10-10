@@ -5,21 +5,17 @@ using System.Web;
 
 namespace FTEC.DONATION.Models
 {
-    public class Vonlunatario
+    public class Voluntario
     {
-        public Vonlunatario()
+        public Voluntario()
         {
             Id = Guid.NewGuid();
         }
         public string Nome      { get; set; }
         public string Sobrenome { get; set; }
         public string Email     { get; set; }
-        public string CPF       { get; set; }
-        public string Endereco  { get; set; }
-        public string Bairro    { get; set; }
-        public string Cidade    { get; set; }
-        public string CEP       { get; set; }
-        public int Idade        { get; set; }
+        public string Sexo      { get; set; }
+        public string Senha     { get; set; }
         public Guid Id          { get; private set; }
     }
 }

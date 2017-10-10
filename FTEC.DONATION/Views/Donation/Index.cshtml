@@ -1,22 +1,13 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section titulo
+{
+    <title>FTEC Donation</title>
 }
 
-<!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>FTEC Donation</title>
-    <!-- Bootstrap core CSS -->
-    <!-- Custom styles for this template -->
-
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/scrolling-nav.css" rel="stylesheet" />
-</head>
+@section conteudo   
+{
 <body id="page-top">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -36,15 +27,15 @@
                     <a class="nav-link  js-scroll-trigger" href="#fundacao">Fundações</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  js-scroll-trigger" href="#vonluntario">Vonluntários</a>
+                    <a class="nav-link  js-scroll-trigger" href="#voluntario">Voluntários</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="btn btn-danger btn-mg ml-1" role="button" data-toggle="modal" data-target="#register">Registar</a>
+                    <a class="btn btn-danger btn-mg ml-1" role="button" data-toggle="modal" data-target="#register">Registrar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-primary btn-mg ml-2" role="button" data-toggle="modal" data-target="#login-modal">Login</a>
+                    <a class="btn btn-primary btn-mg ml-2" role="button" data-toggle="modal" data-target="#login">Login</a>
                 </li>
             </ul>
         </div>
@@ -64,9 +55,9 @@
                     <p class="lead">Ftec Donation tem com objetivo facilitar a integração entre as pessoa e a isntituição, conta com ferramentas de aprocimação que facilitam o processo de doação. Abaixo algumas funcionalidades do site.</p>
                     <ul>
                         <li>Instituição pode criar eventos para voluntários</li>
-                        <li>Vonluntários podem inscrever-se em eventos disponiveis.</li>
+                        <li>Voluntários podem inscrever-se em eventos disponiveis.</li>
                         <li>Instituição pode realizar requisição de objetos doados</li>
-                        <li>Vonluntário pode realizar doação.</li>
+                        <li>Voluntário pode realizar doação.</li>
                     </ul>
                 </div>
             </div>
@@ -76,15 +67,15 @@
         <div class="container text-center">
             <h1>Fundações: Econtre o que voçê precisa para ajudar mais pessoas !</h1>
             <p class="lead">Cadastra-se Já</p>
-            <a class="btn btn-danger btn-mg ml-1" href="~/Donation/Fundacao" >Registar</a>
+            <a class="btn btn-danger btn-mg ml-1" href="~/Donation/NewFundacao" >Registrar</a>
         </div>
     </section>
 
-    <section id="vonluntario">
+    <section id="voluntario">
         <div class="container text-center">
-            <h1>Vonluntário: Faça a Diferença Doe agora mesmo</h1>
+            <h1>Voluntário: Faça a Diferença Doe agora mesmo</h1>
             <p class="lead">Cadastra-se Já</p>
-            <a class="btn btn-danger btn-mg ml-1"  href="~/Donation/Vonluntario">Registar</a>
+            <a class="btn btn-danger btn-mg ml-1"  href="~/Donation/NewVoluntario">Registrar</a>
         </div>
     </section>
 
@@ -108,8 +99,8 @@
                         <div class="form-group ">
                             <select class="custom-select col-md-4" name="teste">
                                 <option selected>Tipo de Usuário</option>
-                                <option value="Fundacao">Fundação</option>
-                                <option value="Vonlunatarios">Vonluntários</option>
+                                <option value="1">Fundação</option>
+                                <option value="2">Voluntários</option>
                             </select>
                             <br><br>
                             <button type="submit" class="btn btn-primary  col-md-12">Continuar</button>
@@ -119,20 +110,69 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="login" role="dialog">
+        <div class="modal-dialog mx-auto">
+            <div class="modal-content mx-auto">
+                <div class="modal-header ">
+                    <h4 class="modal-title">Como você deseja se Cadastrar</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="width: 50;">
+                    <form method="post" action="~/Donation/SelectCad">
+                        <div class="form-group ">
+                            <label>Recinto</label>
+                            <select class="form-control" data-toggle="modal" onchange="teste">
+                                <option value="coliseu">O meu coliseu</option>
+                                <option value="volvo">volvo</option>
+                                <option value="minhaarena">A minha arena</option>
+                                <option value="garagem">a garagem da minha vizinha</option>
+                                <option value="esquina">Na esquina</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="cria-recinto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
 
         $(document).ready(function () {
             $('#register').modal('show');
         })
     </script>
-    <!-- Bootstrap core JavaScript -->
-    <script src="~/Scripts/jquery.min.js"></script>
-    <script src="~/Scripts/popper.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <!-- Plugin JavaScript -->
-    <script src="~/Scripts/jquery.easing.min.js"></script>
-    <!-- Custom JavaScript for this theme -->
-    <script src="~/Scripts/scrolling-nav.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#login').modal('show');
+        })
+    </script>
+    <script>
+        function teste ()
+        {
         
-</body>
-</html>
+        if ($(this).val() == "volvo")
+        {
+            $('#cria-recinto').modal('show');
+        }
+    });
+    </script>
+}
