@@ -38,6 +38,27 @@ namespace FTEC.DONATION.Controllers
         }
 
         [HttpPost]
+        public ActionResult NovaFundacao(Fundacao fundacao)
+        {
+            List<Fundacao> Fundacoes;
+
+
+            if (Session["AproveFundacao"] == null)
+            {
+                Fundacoes = new List<Fundacao>();
+            }
+            else
+            {
+                Fundacoes = (List<Fundacao>)Session["AproveFundacao"];
+            }
+
+            Fundacoes.Add(fundacao);
+
+            Session["AproveFundacao"] = Fundacoes;
+
+            return RedirectToAction("Index", "Fundacao", new { area = "" });
+        }
+        [HttpPost]
         public ActionResult NovoVoluntario(Voluntario voluntario)
         {
             List<Voluntario> Voluntarios;
