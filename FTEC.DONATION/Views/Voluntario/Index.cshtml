@@ -1,32 +1,24 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Voluntario.cshtml";
 }
-
 @section titulo
 {
-    <title>FTEC Donation</title>
+    <title>FTEC Donation - Voluntario</title>
 }
 
 @section conteudo
 {
-    <body>
-    <a href="~/Voluntario/Logout">Sair</a>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr>
-            @foreach (var voluntario in ViewBag.voluntarios)
+
+    <header class="bg-warning text-white">
+        <div class="container text-center">
+
+            @if (ViewBag.Voluntario != null)
             {
-                <td>@voluntario.Nome</td>
+                <h2>Bem Vindo @ViewBag.Voluntario !</h2>
             }
-        </tr>
-       </tbody>
-    </table>
+        </div>
+    </header>
+    <div>
+    </div>
 
 }

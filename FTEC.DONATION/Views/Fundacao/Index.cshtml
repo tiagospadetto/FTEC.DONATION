@@ -1,8 +1,24 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Fundacao.cshtml";
+}
+@section titulo
+{
+    <title>FTEC Donation - Fundacao</title>
 }
 
-<h2>Index</h2>
+@section conteudo
+{
 
+    <header class="bg-danger text-white">
+        <div class="container text-center">
+            
+            @if (ViewBag.Fundacao != null)
+            {
+                <h2>Bem Vindo @ViewBag.Fundacao !</h2>  
+            }
+        </div>
+    </header>
+    <div>
+    </div>
+
+}

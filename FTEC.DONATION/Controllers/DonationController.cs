@@ -94,14 +94,14 @@ namespace FTEC.DONATION.Controllers
             Voluntarios = (List<Voluntario>)Session["voluntarios"];
             Fundacoes = (List<Fundacao>)Session["Fundacao"];
 
-            if (Voluntarios != null || Tipo == "2")
+            if (Voluntarios != null && Tipo == "2")
             {
                 foreach (var Voluntario in Voluntarios)
                 {
 
                     if (Voluntario.Email == Email || Voluntario.Senha == Senha)
                     {
-                        Session["Usuario"] = Email;
+                        Session["Usuario"] = Voluntario.Id;
                         return RedirectToAction("Index", "Voluntario");
 
                     }
@@ -114,14 +114,14 @@ namespace FTEC.DONATION.Controllers
 
                 }
             }
-            if (Fundacoes != null || Tipo == "1")
+            if (Fundacoes != null && Tipo == "1")
             {
                 foreach (var Fundacao in Fundacoes)
                 {
 
                     if (Fundacao.Email == Email || Fundacao.Senha == Senha)
                     {
-                        Session["AcessoF"] = Email;
+                        Session["AcessoF"] = Fundacao.Id;
                         return RedirectToAction("Index", "Fundacao");
 
                     }

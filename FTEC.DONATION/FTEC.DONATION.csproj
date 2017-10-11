@@ -135,6 +135,8 @@
     <Content Include="Views\Shared\_Layout_Administrador.cshtml" />
     <Content Include="Views\Administrador\GerenciarFundacao.cshtml" />
     <Content Include="Views\Fundacao\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout_Fundacao.cshtml" />
+    <Content Include="Views\Shared\_Layout_Voluntario.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -17,12 +17,23 @@ namespace FTEC.DONATION.Controllers
         public ActionResult Index()
         {
             List<Voluntario> Voluntarios;
+            Guid Voluntario = new Guid();
+
+
+            if(Session["Usuario"] != null)
+            {
+                Voluntario = (Guid)Session["Usuario"];
+            }
+            
 
             Voluntarios = (List<Voluntario>)Session["voluntarios"];
 
-            ViewBag.voluntarios = Voluntarios;
+            var voluntario = Voluntarios.Where(p => p.Id == Voluntario).FirstOrDefault();
+
+            ViewBag.Voluntario = voluntario.Nome;
 
             return View();
+
         }
         public ActionResult Logout()
         {
