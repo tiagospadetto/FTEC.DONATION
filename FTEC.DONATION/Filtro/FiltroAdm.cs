@@ -17,7 +17,7 @@ namespace FTEC.DONATION.Filtro
             {
                 filterContext.Result = new RedirectToRouteResult(
                     new RouteValueDictionary(
-                        new { action = "Index", controller = "Login" }));
+                        new { action = "Index", controller = "Donation" }));
             }
 
         }

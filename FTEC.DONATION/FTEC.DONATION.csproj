@@ -127,11 +127,14 @@
     <None Include="packages.config" />
     <Content Include="Views\Donation\Index.cshtml" />
     <Content Include="Views\Vonluntario\Novo.cshtml" />
-    <Content Include="Views\Fundacao\Novo.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Donation\NewFundacao.cshtml" />
     <Content Include="Views\Donation\NewVoluntario.cshtml" />
     <Content Include="Views\Voluntario\Index.cshtml" />
+    <Content Include="Views\Administrador\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout_Administrador.cshtml" />
+    <Content Include="Views\Administrador\GerenciarFundacao.cshtml" />
+    <Content Include="Views\Fundacao\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -141,7 +144,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Administrador\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

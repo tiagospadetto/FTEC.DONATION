@@ -56,7 +56,7 @@ namespace FTEC.DONATION.Controllers
 
             Session["AproveFundacao"] = Fundacoes;
 
-            return RedirectToAction("Index", "Fundacao", new { area = "" });
+            return RedirectToAction("Index");
         }
         [HttpPost]
         public ActionResult NovoVoluntario(Voluntario voluntario)
@@ -76,13 +76,14 @@ namespace FTEC.DONATION.Controllers
             Voluntarios.Add(voluntario);
 
             Session["voluntarios"] = Voluntarios;
-            return RedirectToAction("Index", "Voluntario", new { area = "" });
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
         public ActionResult Autenticar(String Tipo, String Email, String Senha)
         {
             List<Voluntario> Voluntarios;
+            List<Fundacao> Fundacoes;
 
             Adm administrador = new Adm();
 
@@ -91,6 +92,7 @@ namespace FTEC.DONATION.Controllers
 
 
             Voluntarios = (List<Voluntario>)Session["voluntarios"];
+            Fundacoes = (List<Fundacao>)Session["Fundacao"];
 
             if (Voluntarios != null || Tipo == "2")
             {
@@ -112,13 +114,35 @@ namespace FTEC.DONATION.Controllers
 
                 }
             }
+            if (Fundacoes != null || Tipo == "1")
+            {
+                foreach (var Fundacao in Fundacoes)
+                {
+
+                    if (Fundacao.Email == Email || Fundacao.Senha == Senha)
+                    {
+                        Session["AcessoF"] = Email;
+                        return RedirectToAction("Index", "Fundacao");
+
+                    }
+                    else
+                    {
+                        Session["AcessoF"] = null;
+                        return JavaScript("<script>alert(\"método CarregarGrid()\")</script>");
+                    }
+
+
+                }
+
+
+            }
             if (Tipo == "3")
             {
                 if (administrador.Email == Email || administrador.Senha == Senha)
                 {
                     Session["Usuario"] = null;
                     Session["Administrador"] = Email;
-                    return RedirectToAction("Index", "Adminstrador");
+                    return RedirectToAction("Index", "Administrador");
                 }
                 
 

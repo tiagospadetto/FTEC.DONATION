@@ -12,12 +12,12 @@ namespace FTEC.DONATION.Filtro
 
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            object usuariologado = filterContext.HttpContext.Session["Administrador"];
+            object usuariologado = filterContext.HttpContext.Session["AcessoF"];
             if (usuariologado == null)
             {
                 filterContext.Result = new RedirectToRouteResult(
                     new RouteValueDictionary(
-                        new { action = "Index", controller = "Login" }));
+                        new { action = "Index", controller = "Donation" }));
             }
 
         }

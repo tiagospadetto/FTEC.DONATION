@@ -13,20 +13,20 @@
 {
     <body>
     <a href="~/Voluntario/Logout">Sair</a>
-<table>
-    <thead>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+            </tr>
+        </thead>
+        <tbody>
         <tr>
-            <th>Nome</th>
+            @foreach (var voluntario in ViewBag.voluntarios)
+            {
+                <td>@voluntario.Nome</td>
+            }
         </tr>
-    </thead>
-    <tbody>
-    <tr>
-        @foreach (var voluntario in ViewBag.voluntarios)
-        {
-            <td>@voluntario.Nome</td>
-        }
-    </tr>
-   </tbody>
-</table>
+       </tbody>
+    </table>
 
 }
