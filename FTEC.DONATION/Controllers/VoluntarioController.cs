@@ -23,15 +23,15 @@ namespace FTEC.DONATION.Controllers
             if(Session["Usuario"] != null)
             {
                 Voluntario = (Guid)Session["Usuario"];
-            }
             
-
+            
+               
             Voluntarios = (List<Voluntario>)Session["voluntarios"];
 
             var voluntario = Voluntarios.Where(p => p.Id == Voluntario).FirstOrDefault();
 
             ViewBag.Voluntario = voluntario.Nome;
-
+            }
             return View();
 
         }
