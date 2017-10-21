@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    @RenderSection("titulo")
+    <!-- Bootstrap core CSS -->
+    <!-- Custom styles for this template -->
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/scrolling-nav.css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-inverse bg-dark sticky-top" id="mainNav">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand js-scroll-trigger " href="~/Administrador/Index">
+            <img src="~/img/logo1.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            FTEC DONATION - AREA ADMINISTRATIVA
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Administrador/GerenciarFundacao">Gerenciar Fundações</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Administrador/GerenciarVoluntario">Gerenciar Voluntário</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-danger btn-mg ml-1" href="~/Administrador/Logout">Sair</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    @RenderSection("conteudo")
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="~/Scripts/jquery.easing.min.js"></script>
+    <!-- Custom JavaScript for this theme -->
+    <script src="~/Scripts/scrolling-nav.js"></script>
+
+</body>
+</html>

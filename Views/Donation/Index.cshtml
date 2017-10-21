@@ -1,0 +1,158 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section titulo
+{
+    <title>FTEC Donation</title>
+}
+
+@section conteudo   
+{
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top " style ="background-color:#FFF;" id="mainNav">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand js-scroll-trigger " href="#page-top">
+            <img src="~/img/logo1.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            FTEC DONATION
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link js-scroll-trigger" href="#about">Sobre <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  js-scroll-trigger" href="#fundacao">Fundações</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  js-scroll-trigger" href="#voluntario">Voluntários</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="btn btn-success text-white btn-mg ml-1" role="button" data-toggle="modal" data-target="#register">Registrar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-primary text-white btn-mg ml-2" role="button" data-toggle="modal" data-target="#login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="bg-info	 text-white">
+        <div class="container text-center">
+            <h1>Bem Vindo ao Ftec Donation</h1>
+            <p class="lead">Ferramenta desenvolvida para facilitar integração entre Doador e Instituição</p>
+        </div>
+    </header>
+    <section id="about">
+        <div class="container ">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Sobre essa Pagina</h2>
+                    <p class="lead">Ftec Donation tem com objetivo facilitar a integração entre as pessoa e a isntituição, conta com ferramentas de aprocimação que facilitam o processo de doação. Abaixo algumas funcionalidades do site.</p>
+                    <ul>
+                        <li>Instituição pode criar eventos para voluntários</li>
+                        <li>Voluntários podem inscrever-se em eventos disponiveis.</li>
+                        <li>Instituição pode realizar requisição de objetos doados</li>
+                        <li>Voluntário pode realizar doação.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-warning" id="fundacao">
+        <div class="container text-center">
+            <h1>Fundações: Econtre o que voçê precisa para ajudar mais pessoas !</h1>
+            <p class="lead">Cadastra-se Já</p>
+            <a class="btn btn-danger btn-mg ml-1" href="~/Donation/NewFundacao" >Registrar</a>
+        </div>
+    </section>
+
+    <section id="voluntario">
+        <div class="container text-center">
+            <h1>Voluntário: Faça a Diferença Doe agora mesmo</h1>
+            <p class="lead">Cadastra-se Já</p>
+            <a class="btn btn-danger btn-mg ml-1"  href="~/Donation/NewVoluntario">Registrar</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">FTEC DONATION 2017</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <div class="modal fade" id="register" role="dialog">
+        <div class="modal-dialog mx-auto">
+            <div class="modal-content mx-auto">
+                <div class="modal-header ">
+                    <h4 class="modal-title">Como você deseja se Cadastrar</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="width: 50;">
+                    <form method="post" action="~/Donation/SelectCad">
+                        <div class="form-group ">
+                            <select class="custom-select col-md-4" name="teste">
+                                <option selected>Tipo de Usuário</option>
+                                <option value="1">Fundação</option>
+                                <option value="2">Voluntários</option>
+                            </select>
+                            <br><br>
+                            <button type="submit" class="btn btn-primary  col-md-12">Continuar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="login" role="dialog">
+        <div class="modal-dialog mx-auto">
+            <div class="modal-content mx-auto">
+                <div class="modal-header ">
+                    <h4 class="modal-title">Como você deseja se Cadastrar</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="width: 50;">
+                    <form method="post" action="~/Donation/Autenticar">
+                        <div class="form-group ">
+                            <select class="custom-select col-md-4" name="Tipo">
+                                <option selected>Tipo de Usuário</option>
+                                <option value="1">Fundação</option>
+                                <option value="2">Voluntários</option>
+                                <option value="3">Administrador</option>
+                            </select>
+                            <br><br>
+                            <label for="Email">Email</label>
+                            <input class="form-control col-md-12" type="text" name="Email" placeholder="Email">
+                            <br><br>
+                            <label for="Senha">Senha</label>
+                            <input class="form-control col-md-12" type="password" name="Senha" placeholder="Senha">
+                            <br><br>
+                            <button type="submit" class="btn btn-primary  col-md-12">Login</button>
+                            <br><br>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#register').modal('show');
+        })
+   
+
+        $(document).ready(function () {
+            $('#login').modal('show');
+        })
+    </script>
+}

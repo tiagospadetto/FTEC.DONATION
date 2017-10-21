@@ -1,0 +1,57 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section titulo
+{
+    <title>Registar Voluntários</title>
+    <style type="text/css">
+        .m-t-10 {
+            margin-top: 10px;
+        }
+    </style>
+}
+
+@section conteudo
+{
+    <body>
+
+        <div class="container mx-auto">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 mx-auto">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><h1>Cadastro de Voluntário</h1></div>
+                        </br>
+                        <div class="panel-body">
+                            <form role="form" method="post" action="~/Donation/NovoVoluntario" accept-charset="UTF-8">
+
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome" class="form-control" name="voluntario.nome" placeholder="Exemplo: John">
+
+                                <label for="sobrenome">Sobrenome</label>
+                                <input type="text" id="sobrenome" class="form-control" name="voluntario.sobrenome" placeholder="Exemplo: Smith">
+
+                                <label for="sexo" class="m-t-10">Sexo</label>
+                                <select id="sexo" class="form-control" name="voluntario.sexo">
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Masculino">Masculino</option>
+                                </select>
+
+                                <label for="email" class="m-t-10">Email Address</label>
+                                <input type="text" id="email" class="form-control" name="voluntario.email" placeholder="Example: john.smith@gmail.com">
+
+                                <label for="senha" class="m-t-10">Senha</label>
+                                <input type="password" id="senha" class="form-control" name="voluntario.senha" placeholder="">
+
+                                <label for="cfsenha" class="m-t-10">Confirmar Senha</label>
+                                <input type="password" id="cfsenha" class="form-control" name="cf.senha" placeholder="">
+
+                                <center><input type="submit" class="btn btn-success m-t-10" id="submitbtn" name="submit" value="Registrar"></center>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+}

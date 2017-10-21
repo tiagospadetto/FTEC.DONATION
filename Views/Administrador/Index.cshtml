@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout_Administrador.cshtml";
+}
+@section titulo
+{
+    <title>FTEC Donation - Administrativa</title>
+}
+
+@section conteudo
+{       
+
+           <header class="bg-dark text-white" >
+              <div class="container text-center">  
+                   @if(ViewBag.administrador != null)
+                   {
+                       <h2>Bem Vindo @ViewBag.administrador !</h2>
+                   }
+               </div>
+           </header>
+           <div>
+           </div>
+
+}

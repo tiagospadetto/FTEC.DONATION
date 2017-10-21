@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Fundacao.cshtml";
+}
+@section titulo
+{
+    <title>FTEC Donation - Fundacao</title>
+}
+
+@section conteudo
+{
+
+    <header class="bg-danger text-white">
+        <div class="container text-center">
+            
+            @if (ViewBag.Fundacao != null)
+            {
+                <h2>Bem Vindo @ViewBag.Fundacao !</h2>  
+            }
+        </div>
+    </header>
+    <div>
+    </div>
+
+}

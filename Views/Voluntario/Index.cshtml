@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Voluntario.cshtml";
+}
+@section titulo
+{
+    <title>FTEC Donation - Voluntario</title>
+}
+
+@section conteudo
+{
+
+    <header class="bg-warning text-white">
+        <div class="container text-center">
+
+            @if (ViewBag.Voluntario != null)
+            {
+                <h2>Bem Vindo @ViewBag.Voluntario !</h2>
+            }
+        </div>
+    </header>
+    <div>
+    </div>
+
+}

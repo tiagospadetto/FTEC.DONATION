@@ -1,0 +1,97 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Administrador.cshtml";
+}
+@section titulo
+{
+    <title>FTEC Donation - Administrativa</title>
+}
+
+@section conteudo
+{
+    
+   <section id="fundacao">
+    <div class="container ">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <p>Fundações para aprovar</p>
+                @if (ViewBag.Fundacoes != null)
+                {
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Tipo</th>
+                                <th>Email</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var fundacao in ViewBag.Fundacoes)
+                            {
+                                <tr>
+                                    <td>@fundacao.Nome</td>
+                                    <td>@fundacao.Tipo</td>
+                                    <td>@fundacao.Email</td>
+                                    <td><a href="#" onclick="aprova('@fundacao.Id');">+</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }else
+                {
+                    <p> nenhuma fundação para aprova </p>
+                }
+                <p>Fundações para aprovadas</p>
+                <table id="conteudo" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Tipo</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+
+                    @if (ViewBag.FundacoesAprove != null)
+                    {
+                        <tbody>
+
+                            @foreach (var fundacao in ViewBag.FundacoesAprove)
+                            {
+                                <tr>
+                                    <td id="nome@(fundacao.Id)">@fundacao.Nome</td>
+                                    <td id="tipo@(fundacao.Id)">@fundacao.Tipo</td>
+                                    <td id="email@(fundacao.Id)">@fundacao.Email</td>
+                                </tr>
+                            }
+                        </tbody>
+                    }
+                </table>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+
+    function aprova(fundacaoId) {
+
+        var url = "/Administrador/Aprova";
+        var param = { id: fundacaoId };
+        alert("Teste")
+        $.post(url, param, fimexecucao);
+    }
+
+    function fimexecucao(retorno) {
+       
+
+        $('#conteudo').load(this.data("target"));
+    }
+
+</script>
+
+
+
+}
