@@ -7,7 +7,7 @@ using FTEC.DONATION.Filtro;
 using FTEC.DONATION.Models;
 
 namespace FTEC.DONATION.Controllers
-{   
+{
     [FiltroFundacao]
     public class FundacaoController : Controller
     {
@@ -15,17 +15,17 @@ namespace FTEC.DONATION.Controllers
         [FiltroFundacao]
         public ActionResult Index()
         {
-            Guid Fundacao = new Guid ();
+            Guid Fundacao = new Guid();
             List<Fundacao> Fundacoes;
-            if(Session["AcessoF"] != null)
+            if (Session["AcessoF"] != null)
             {
                 Fundacao = (Guid)Session["AcessoF"];
-            
-            Fundacoes = (List<Fundacao>)Session["Fundacao"];
 
-            var fundacao = Fundacoes.Where(p => p.Id == Fundacao).FirstOrDefault();
+                Fundacoes = (List<Fundacao>)Session["Fundacao"];
 
-            ViewBag.Fundacao = fundacao.Nome;
+                var fundacao = Fundacoes.Where(p => p.Id == Fundacao).FirstOrDefault();
+
+                ViewBag.Fundacao = fundacao.Nome;
             }
             return View();
         }
@@ -34,6 +34,21 @@ namespace FTEC.DONATION.Controllers
             return View();
         }
 
+        public ActionResult VisualizarEventos()
+        {
+            return View();
+        }
+
+        public ActionResult FazerDoacao()
+        {
+            return View();
+        }
+
+
+        public ActionResult VisualizarFundacoes()
+        {
+            return View();
+        }
         public ActionResult Logout()
         {
             Session["AcessoF"] = null;

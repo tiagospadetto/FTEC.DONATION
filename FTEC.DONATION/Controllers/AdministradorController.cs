@@ -8,7 +8,7 @@ using FTEC.DONATION.Models;
 using FTEC.DONATION.Filtro;
 
 namespace FTEC.DONATION.Controllers
-{   
+{
     [FiltroAdm]
     public class AdministradorController : Controller
     {
@@ -50,7 +50,7 @@ namespace FTEC.DONATION.Controllers
                 fundacoes = (List<Fundacao>)Session["AproveFundacao"];
             }
 
-            
+
 
             var fundacao = fundacoes.Where(p => p.Id == id).FirstOrDefault();
 
@@ -68,18 +68,18 @@ namespace FTEC.DONATION.Controllers
                 fundaprovadas.Add(fundacao);
                 fundacoes.Remove(fundacao);
 
-                Session["Fundacao"] = fundaprovadas ;
+                Session["Fundacao"] = fundaprovadas;
                 Session["AproveFundacao"] = fundacoes;
             }
 
 
             return View("GerenciarFundacao");
         }
-        public ActionResult Logout( )
+        public ActionResult Logout()
         {
             Session["Administrador"] = null;
 
-           return RedirectToAction("Index", "Donation");
+            return RedirectToAction("Index", "Donation");
         }
 
     }

@@ -20,17 +20,17 @@ namespace FTEC.DONATION.Controllers
             Guid Voluntario = new Guid();
 
 
-            if(Session["Usuario"] != null)
+            if (Session["Usuario"] != null)
             {
                 Voluntario = (Guid)Session["Usuario"];
-            
-            
-               
-            Voluntarios = (List<Voluntario>)Session["voluntarios"];
 
-            var voluntario = Voluntarios.Where(p => p.Id == Voluntario).FirstOrDefault();
 
-            ViewBag.Voluntario = voluntario.Nome;
+
+                Voluntarios = (List<Voluntario>)Session["voluntarios"];
+
+                var voluntario = Voluntarios.Where(p => p.Id == Voluntario).FirstOrDefault();
+
+                ViewBag.Voluntario = voluntario.Nome;
             }
             return View();
 
@@ -39,7 +39,24 @@ namespace FTEC.DONATION.Controllers
         {
             Session["Usuario"] = null;
             return RedirectToAction("Index", "Donation");
-           
+
+        }
+
+        public ActionResult VisualizarEventos()
+        {
+            return View();
+            // return RedirectToAction("VisualizarEventos", "Voluntario");
+        }
+
+        public ActionResult Doar()
+        {
+            return RedirectToAction("Doar", "Voluntario");
+        }
+
+        public ActionResult VisualizarFundacoes()
+        {
+            //Gerar aqui um objeto com as fundações já cadastradas para enviar a view???
+            return RedirectToAction("VisualizarFundacoes", "Voluntario");
         }
     }
 }

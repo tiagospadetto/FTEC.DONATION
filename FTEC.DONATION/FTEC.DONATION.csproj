@@ -126,7 +126,6 @@
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\Donation\Index.cshtml" />
-    <Content Include="Views\Vonluntario\Novo.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Donation\NewFundacao.cshtml" />
     <Content Include="Views\Donation\NewVoluntario.cshtml" />
@@ -137,6 +136,13 @@
     <Content Include="Views\Fundacao\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_Fundacao.cshtml" />
     <Content Include="Views\Shared\_Layout_Voluntario.cshtml" />
+    <Content Include="Views\Fundacao\Novo.cshtml" />
+    <Content Include="Views\Fundacao\VisualizarEventos.cshtml" />
+    <Content Include="Views\Fundacao\FazerDoacao.cshtml" />
+    <Content Include="Views\Fundacao\VisualizarFundacoes.cshtml" />
+    <Content Include="Views\Voluntario\VisualizarEventos.cshtml" />
+    <Content Include="Views\Voluntario\VisualizarFundacoes.cshtml" />
+    <Content Include="Views\Voluntario\Doar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

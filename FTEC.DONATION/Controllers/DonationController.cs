@@ -17,7 +17,7 @@ namespace FTEC.DONATION.Controllers
         [HttpPost]
         public ActionResult SelectCad(String teste)
         {
-            if(teste == "2")
+            if (teste == "2")
             {
                 return RedirectToAction("NewVoluntario");
             }
@@ -41,7 +41,6 @@ namespace FTEC.DONATION.Controllers
         public ActionResult NovaFundacao(Fundacao fundacao)
         {
             List<Fundacao> Fundacoes;
-
 
             if (Session["AproveFundacao"] == null)
             {
@@ -90,6 +89,10 @@ namespace FTEC.DONATION.Controllers
             administrador.Email = "admin";
             administrador.Senha = "admin123";
 
+            //so para teste de login, não estava sendo redirecionado a pagina index da fundação...
+            Fundacao fund = new Fundacao();
+            fund.Email = "fun";
+            fund.Senha = "fun";
 
             Voluntarios = (List<Voluntario>)Session["voluntarios"];
             Fundacoes = (List<Fundacao>)Session["Fundacao"];
@@ -118,7 +121,7 @@ namespace FTEC.DONATION.Controllers
             {
                 foreach (var Fundacao in Fundacoes)
                 {
-
+                    //PARECE NAO ESTAR ENTRANDO NESSE CONTROLLER...
                     if (Fundacao.Email == Email || Fundacao.Senha == Senha)
                     {
                         Session["AcessoF"] = Fundacao.Id;
@@ -144,12 +147,12 @@ namespace FTEC.DONATION.Controllers
                     Session["Administrador"] = Email;
                     return RedirectToAction("Index", "Administrador");
                 }
-                
+
 
             }
 
             return RedirectToAction("Index");
         }
 
-    }   
+    }
 }
