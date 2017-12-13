@@ -5,23 +5,30 @@ using System.Web;
 using System.Web.Mvc;
 using FTEC.DONATION.Filtro;
 using FTEC.DONATION.Models;
+using FTEC.DONATION.INFRA.REPOSITORIO;
+using FTEC.DONATION.DOMINIO.Entidade;
 
 namespace FTEC.DONATION.Controllers
 {
     [FiltroFundacao]
     public class FundacaoController : Controller
     {
+
+        private string strConexao = "Server=localhost; Port=5432; Database=projeto; User Id = postgres; Password = 12345; ";
+
         // GET: Fundacao
         [FiltroFundacao]
         public ActionResult Index()
         {
             Guid Fundacao = new Guid();
-            List<Fundacao> Fundacoes;
+            List<Funcacao> Fundacoes;
+            FundacaoRepositorio fundacaoRepositorio = new FundacaoRepositorio(strConexao);
+
             if (Session["AcessoF"] != null)
             {
                 Fundacao = (Guid)Session["AcessoF"];
 
-                Fundacoes = (List<Fundacao>)Session["Fundacao"];
+                Fundacoes = fundacaoRepositorio.ListarAprovadas();
 
                 var fundacao = Fundacoes.Where(p => p.Id == Fundacao).FirstOrDefault();
 

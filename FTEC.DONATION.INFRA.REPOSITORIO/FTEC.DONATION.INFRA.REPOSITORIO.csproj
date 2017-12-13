@@ -55,5 +55,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FTEC.DONATION.DOMINIO\FTEC.DONATION.DOMINIO.csproj">
+      <Project>{be0654eb-b850-4794-96a5-7a97842afb87}</Project>
+      <Name>FTEC.DONATION.DOMINIO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

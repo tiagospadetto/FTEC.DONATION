@@ -6,12 +6,17 @@ using System.Web.Mvc;
 using FTEC.DONATION.Controllers;
 using FTEC.DONATION.Models;
 using FTEC.DONATION.Filtro;
+using FTEC.DONATION.INFRA.REPOSITORIO;
+using FTEC.DONATION.DOMINIO.Entidade;
+
 
 namespace FTEC.DONATION.Controllers
 {
     [FiltroAdm]
     public class AdministradorController : Controller
     {
+        private string strConexao = "Server=localhost; Port=5432; Database=projeto; User Id = postgres; Password = 12345; ";
+
         // GET: Administrador
         public ActionResult Index()
         {
@@ -24,52 +29,41 @@ namespace FTEC.DONATION.Controllers
 
         public ActionResult GerenciarFundacao()
         {
-            List<Fundacao> Fundacoes;
-            List<Fundacao> FundacoesAprove;
+            List<Funcacao> Fundacoes;
+            List<Funcacao> FundacoesAprove;
 
-            Fundacoes = (List<Fundacao>)Session["AproveFundacao"];
-            FundacoesAprove = (List<Fundacao>)Session["Fundacao"];
+            FundacaoRepositorio fundacaoRepositorio = new FundacaoRepositorio(strConexao);
+
+
+            Fundacoes = fundacaoRepositorio.Listar();
+            FundacoesAprove = fundacaoRepositorio.ListarAprovadas();
 
             ViewBag.Fundacoes = Fundacoes;
             ViewBag.FundacoesAprove = FundacoesAprove;
+
             return View();
         }
 
         [HttpPost]
         public ActionResult Aprova(Guid id)
         {
-            List<Fundacao> fundacoes;
-            List<Fundacao> fundaprovadas;
+            List<Funcacao> Fundacoes;
+            List<Funcacao> FundacoesAprove;
 
-            if (Session["AproveFundacao"] == null)
-            {
-                fundacoes = new List<Fundacao>();
-            }
-            else
-            {
-                fundacoes = (List<Fundacao>)Session["AproveFundacao"];
-            }
+            FundacaoRepositorio fundacaoRepositorio = new FundacaoRepositorio(strConexao);
+
+            Fundacoes = fundacaoRepositorio.Listar();
 
 
 
-            var fundacao = fundacoes.Where(p => p.Id == id).FirstOrDefault();
+            var fundacao = Fundacoes.Where(p => p.Id == id).FirstOrDefault();
 
             if (fundacao != null)
             {
-                if (Session["Fundacao"] == null)
-                {
-                    fundaprovadas = new List<Fundacao>();
-                }
-                else
-                {
-                    fundaprovadas = (List<Fundacao>)Session["Fundacao"];
-                }
+                fundacaoRepositorio.Inserir(fundacao,"Aprovada");
 
-                fundaprovadas.Add(fundacao);
-                fundacoes.Remove(fundacao);
+                fundacaoRepositorio.Aprova(fundacao.Id);
 
-                Session["Fundacao"] = fundaprovadas;
-                Session["AproveFundacao"] = fundacoes;
             }
 
 

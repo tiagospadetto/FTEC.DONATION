@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace FTEC.DONATION.DOMINIO.Entidade
 {
-    class Adm
+    public class Adm
     {
+       
+
+        public string Email { get; set; }
+        public string Senha { get; set; }
+        public Guid Id { get;  set; }
+
     }
 }

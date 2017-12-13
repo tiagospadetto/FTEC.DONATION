@@ -4,11 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FTEC.DONATION.Models;
+using FTEC.DONATION.INFRA.REPOSITORIO;
+using FTEC.DONATION.DOMINIO.Entidade;
 
 namespace FTEC.DONATION.Controllers
 {
     public class DonationController : Controller
-    {
+    {   
+        private string strConexao = "Server=localhost; Port=5432; Database=projeto; User Id = postgres; Password = 12345; ";
         // GET: Donation
         public ActionResult Index()
         {
@@ -40,71 +43,67 @@ namespace FTEC.DONATION.Controllers
         [HttpPost]
         public ActionResult NovaFundacao(Fundacao fundacao)
         {
-            List<Fundacao> Fundacoes;
+            Funcacao fund = new Funcacao();
 
-            if (Session["AproveFundacao"] == null)
-            {
-                Fundacoes = new List<Fundacao>();
-            }
-            else
-            {
-                Fundacoes = (List<Fundacao>)Session["AproveFundacao"];
-            }
+            fund.Id     = fundacao.Id;
+            fund.Nome   = fundacao.Nome;
+            fund.Tipo   = fundacao.Tipo;
+            fund.Email  = fundacao.Email;
+            fund.Senha  = fundacao.Senha;
 
-            Fundacoes.Add(fundacao);
+            FundacaoRepositorio fundacaoRepositorio = new FundacaoRepositorio(strConexao);
 
-            Session["AproveFundacao"] = Fundacoes;
+            fundacaoRepositorio.Inserir(fund, "aprovar");
 
             return RedirectToAction("Index");
         }
         [HttpPost]
         public ActionResult NovoVoluntario(Voluntario voluntario)
         {
-            List<Voluntario> Voluntarios;
+            EVoluntario volunt = new EVoluntario();
+
+            volunt.Id        = voluntario.Id;
+            volunt.Nome      = voluntario.Nome;
+            volunt.Sobrenome = voluntario.Sobrenome;
+            volunt.Sexo      = voluntario.Sexo;
+            volunt.Email     = voluntario.Email;
+            volunt.Senha     = voluntario.Senha;
 
 
-            if (Session["voluntarios"] == null)
-            {
-                Voluntarios = new List<Voluntario>();
-            }
-            else
-            {
-                Voluntarios = (List<Voluntario>)Session["voluntarios"];
-            }
+            VoluntarioRepositorio voluntarioRepositorio = new VoluntarioRepositorio(strConexao);
 
-            Voluntarios.Add(voluntario);
 
-            Session["voluntarios"] = Voluntarios;
+            voluntarioRepositorio.Inserir(volunt);
+
             return RedirectToAction("Index");
         }
 
         [HttpPost]
         public ActionResult Autenticar(String Tipo, String Email, String Senha)
         {
-            List<Voluntario> Voluntarios;
-            List<Fundacao> Fundacoes;
+            List<EVoluntario> Voluntarios;
+            List<Funcacao> Fundacoes;
 
-            Adm administrador = new Adm();
+            AdmRepositorio adminRepositorio = new AdmRepositorio(strConexao);
+            FundacaoRepositorio fundacaoRepositorio = new FundacaoRepositorio(strConexao);
+            VoluntarioRepositorio voluntarioRepositorio = new VoluntarioRepositorio(strConexao);
 
-            administrador.Email = "admin";
-            administrador.Senha = "admin123";
+            Funcacao fund = new Funcacao();
 
-            //so para teste de login, não estava sendo redirecionado a pagina index da fundação...
-            Fundacao fund = new Fundacao();
-            fund.Email = "fun";
-            fund.Senha = "fun";
 
-            Voluntarios = (List<Voluntario>)Session["voluntarios"];
-            Fundacoes = (List<Fundacao>)Session["Fundacao"];
+            Voluntarios = voluntarioRepositorio.List();
+            Fundacoes = fundacaoRepositorio.ListarAprovadas();
 
             if (Voluntarios != null && Tipo == "2")
             {
-                foreach (var Voluntario in Voluntarios)
-                {
+                EVoluntario voluntario = new EVoluntario();
 
-                    if (Voluntario.Email == Email || Voluntario.Senha == Senha)
+                voluntario = voluntarioRepositorio.Acesso(Email, Senha);
+
+
+                    if (voluntario.Email == Email)
                     {
-                        Session["Usuario"] = Voluntario.Id;
+                        Session["Usuario"] = voluntario.Id;
                         return RedirectToAction("Index", "Voluntario");
 
                     }
@@ -115,16 +114,15 @@ namespace FTEC.DONATION.Controllers
                     }
 
 
-                }
+                
             }
             if (Fundacoes != null && Tipo == "1")
             {
-                foreach (var Fundacao in Fundacoes)
-                {
-                    //PARECE NAO ESTAR ENTRANDO NESSE CONTROLLER...
-                    if (Fundacao.Email == Email || Fundacao.Senha == Senha)
+                fund = fundacaoRepositorio.Acesso(Email, Senha);
+
+                    if (fund.Email != null )
                     {
-                        Session["AcessoF"] = Fundacao.Id;
+                        Session["AcessoF"] = fund.Id;
                         return RedirectToAction("Index", "Fundacao");
 
                     }
@@ -134,17 +132,24 @@ namespace FTEC.DONATION.Controllers
                         return JavaScript("<script>alert(\"método CarregarGrid()\")</script>");
                     }
 
-
-                }
-
-
             }
             if (Tipo == "3")
             {
-                if (administrador.Email == Email || administrador.Senha == Senha)
+                
+
+                
+
+                FTEC.DONATION.DOMINIO.Entidade.Adm admin = new FTEC.DONATION.DOMINIO.Entidade.Adm();
+
+                admin = adminRepositorio.ValidAdm(Email,Senha);
+
+                if (admin.Email != null )
                 {
                     Session["Usuario"] = null;
                     Session["Administrador"] = Email;
+
+
+
                     return RedirectToAction("Index", "Administrador");
                 }
 

@@ -153,6 +153,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FTEC.DONATION.DOMINIO\FTEC.DONATION.DOMINIO.csproj">
+      <Project>{be0654eb-b850-4794-96a5-7a97842afb87}</Project>
+      <Name>FTEC.DONATION.DOMINIO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FTEC.DONATION.INFRA.REPOSITORIO\FTEC.DONATION.INFRA.REPOSITORIO.csproj">
+      <Project>{e72ec587-cf80-462b-bf62-1967387f6355}</Project>
+      <Name>FTEC.DONATION.INFRA.REPOSITORIO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

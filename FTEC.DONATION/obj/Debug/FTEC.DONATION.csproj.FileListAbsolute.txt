@@ -348,3 +348,11 @@ C:\temp\FTEC.DONATION\FTEC.DONATION\obj\Debug\FTEC.DONATION.csprojResolveAssembl
 C:\temp\FTEC.DONATION\FTEC.DONATION\obj\Debug\FTEC.DONATION.csproj.CoreCompileInputs.cache
 C:\temp\FTEC.DONATION\FTEC.DONATION\obj\Debug\FTEC.DONATION.dll
 C:\temp\FTEC.DONATION\FTEC.DONATION\obj\Debug\FTEC.DONATION.pdb
+C:\Users\Tiago\Documents\Server\FTEC.DONATION\FTEC.DONATION\bin\FTEC.DONATION.DOMINIO.dll
+C:\Users\Tiago\Documents\Server\FTEC.DONATION\FTEC.DONATION\bin\FTEC.DONATION.INFRA.REPOSITORIO.dll
+C:\Users\Tiago\Documents\Server\FTEC.DONATION\FTEC.DONATION\bin\Npgsql.dll
+C:\Users\Tiago\Documents\Server\FTEC.DONATION\FTEC.DONATION\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\Tiago\Documents\Server\FTEC.DONATION\FTEC.DONATION\bin\FTEC.DONATION.DOMINIO.pdb
+C:\Users\Tiago\Documents\Server\FTEC.DONATION\FTEC.DONATION\bin\FTEC.DONATION.INFRA.REPOSITORIO.pdb
+C:\Users\Tiago\Documents\Server\FTEC.DONATION\FTEC.DONATION\bin\Npgsql.xml
+C:\Users\Tiago\Documents\Server\FTEC.DONATION\FTEC.DONATION\bin\System.Threading.Tasks.Extensions.xml

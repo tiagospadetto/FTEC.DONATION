@@ -43,7 +43,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Entidade\Adm.cs" />
     <Compile Include="Entidade\Funcacao.cs" />
-    <Compile Include="Entidade\Voluntario.cs" />
+    <Compile Include="Entidade\EVoluntario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\IAdmRepositorio.cs" />
     <Compile Include="Repositorio\IFundacaoRepositorio.cs" />

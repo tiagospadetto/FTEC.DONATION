@@ -7,8 +7,13 @@ namespace FTEC.DONATION.Models
 {
     public class Adm
     {
-     
-       public string Email { get; set; }
-       public string Senha { get; set; }
+        public Adm()
+        {
+            Id = Guid.NewGuid();
+        }
+
+        public string Email { get; set; }
+        public string Senha { get; set; }
+        public Guid Id { get; private set; }
     }
 }

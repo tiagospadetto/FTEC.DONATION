@@ -1,0 +1,6 @@
+C:\Users\Tiago\Documents\Server\FTEC.DONATION\FTEC.DONATION.DOMINIO\bin\Debug\FTEC.DONATION.DOMINIO.dll
+C:\Users\Tiago\Documents\Server\FTEC.DONATION\FTEC.DONATION.DOMINIO\bin\Debug\FTEC.DONATION.DOMINIO.pdb
+C:\Users\Tiago\Documents\Server\FTEC.DONATION\FTEC.DONATION.DOMINIO\obj\Debug\FTEC.DONATION.DOMINIO.csprojResolveAssemblyReference.cache
+C:\Users\Tiago\Documents\Server\FTEC.DONATION\FTEC.DONATION.DOMINIO\obj\Debug\FTEC.DONATION.DOMINIO.csproj.CoreCompileInputs.cache
+C:\Users\Tiago\Documents\Server\FTEC.DONATION\FTEC.DONATION.DOMINIO\obj\Debug\FTEC.DONATION.DOMINIO.dll
+C:\Users\Tiago\Documents\Server\FTEC.DONATION\FTEC.DONATION.DOMINIO\obj\Debug\FTEC.DONATION.DOMINIO.pdb
